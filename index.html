@@ -1,0 +1,161 @@
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+    <link type="text/css" rel="stylesheet" href="styles.css" />
+    <script src="scripts.js"></script> 
+  </head>
+  <body>
+    <div class="container">
+      <div class="intro-container">
+          <div class="pen-img">
+            <div data-range="-4, 9" class="square">
+              <div class="desc-cont">
+                <p>A simple click pen informed by tree branches.</p>
+                <h3>?</h3>
+              </div>
+            </div>
+            <img data-range="0,5" src="imgs/pen1.png"/>
+          </div>
+          <div class="text-intro">
+            <h2>Twig</h2>
+            <h1>A pen you’ll want to keep around.</h1>
+            <p>But you can toss it if you want.</p>
+          </div>
+        </div>
+        <div class="charts-container">
+            <div class="chart-intro">
+              <h1>Pens are part of the problem.</h1>
+              <p>The majority of pens in the United States are made from polystyrene plastic - a non-recyclable plastic.</p>
+            </div>
+          <div class="chart-container">
+            <div class="chart-filter">
+              <h1>Plastics Breakdown</h1>
+              <p class="filter-one">2015</p>
+              <p class="filter-two">2014</p>
+              <p class="filter-three">2013</p>
+            </div>
+            <div class="key-container">
+              <div class="key">
+                <div class="rec yellow"></div>
+                <h1>Recycled</h1>
+              </div>
+              <div class="key">
+                <div class="rec red"></div>
+                <h1>Landfilled</h1>
+              </div>
+              <div class="key">
+                <div class="rec blue"></div>
+                <h1>Combusted</h1>
+              </div>
+            </div>
+            <canvas id="myChart"></canvas>
+            <canvas id="myChartTwo"></canvas>
+            <canvas id="myChartThree"></canvas>
+          </div>
+        </div>
+      </div>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
+      <script>
+        var divs = Array.prototype.slice.call(document.querySelectorAll('[data-range]'));
+        document.addEventListener('mousemove', function(e){
+          var eased = e.pageX / window.innerWidth;
+          divs.forEach(function(div){
+            var range = div.getAttribute('data-range').split(',');
+            var min = parseFloat(range[0]);
+            var max = parseFloat(range[1]);
+            var ease = min + (eased * (max - min));
+            div.style.webkitTransform = 'translateX(' + ease + '%)';
+            div.style.transform = 'translateX(' + ease + '%)';
+          });
+        });
+      </script>
+        <script>
+        var ctx = document.getElementById("myChart");
+        var ctxTwo = document.getElementById("myChartTwo");
+        var ctxThree = document.getElementById("myChartThree");
+        var myChart = new Chart(ctx, {
+            type: 'pie',
+            data: {
+                labels: ["Landfilled", "Combusted", "Recycled"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [24370, 4530, 2500],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+              legend: {
+                display: false
+              }
+            }
+        });
+
+
+        var myChartTwo = new Chart(ctxTwo, {
+            type: 'pie',
+            data: {
+                labels: ["Landfilled", "Combusted", "Recycled"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [33190, 5010, 1190],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+              legend: {
+                display: false
+              }
+            }
+        });
+
+
+        var myChartThree = new Chart(ctxThree, {
+            type: 'pie',
+            data: {
+                labels: ["Landfilled", "Combusted", "Recycled"],
+                datasets: [{
+                    label: '# of Votes',
+                    data: [26010, 5350, 3140],
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255,99,132,1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+              legend: {
+                display: false
+              }
+            }
+        });
+        </script>
+  </body>
+</html>

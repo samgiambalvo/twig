@@ -1,0 +1,433 @@
+@font-face{font-family:'graphik-web';src:url('https://zoomforth-static.s3.amazonaws.com/fonts/graphik-regular-webfont.ttf');font-weight:normal;font-style:normal}
+@font-face{font-family:'graphik-bold';src:url('https://zoomforth-static.s3.amazonaws.com/fonts/graphik-black-webfont.ttf');font-weight:normal;font-style:normal}
+@font-face{font-family:'graphik-black';src:url('https://zoomforth-static.s3.amazonaws.com/fonts/graphik-black-webfont.ttf');font-weight:normal;font-style:normal}
+
+@font-face {
+  font-family: Bagnard;
+  font-weight: normal;
+  src: url("https://d3jozdooylvm2p.cloudfront.net/fonts/misc/Bagnard.otf") format('opentype');
+}
+
+html, body, h1, h2, h3, p {
+  margin: 0; padding: 0;
+  font-family: "graphik-web";
+  color: #28282E;
+}
+
+.container {
+  position: relative;
+}
+
+.intro-container {
+  background-color: #CCDBEB;
+  width: 100%;
+  height: 100%;
+  position: relative;
+}
+
+.grid {
+  width: 88%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.text-intro {
+  width: 34vw;
+  float: right;
+  margin: 12vw;
+}
+
+.text-intro h2 {
+  font-family: Bagnard;
+  opacity: 0.7;
+  font-size: 30px;
+}
+
+.text-intro h2 {
+  font-family: Bagnard;
+  opacity: 0.7;
+  font-size: 2.4vw;
+  font-weight: 100;
+}
+
+.text-intro h1 {
+  font-family: "graphik-web";
+  font-weight: 100;
+  font-size: 4.25vw;
+  line-height: 4.75vw;
+  padding-top: 2.75vw;
+  padding-bottom: 2.75vw;
+}
+
+.text-intro p {
+  font-size: 1.6vw;
+  color: #585D66;
+}
+
+.pen-img {
+  width: 39.5vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.pen-img img {
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: -2vw;
+  transition: all cubic-bezier(0.2, 0.2, 0.1, 0.6) 0.4s;
+}
+
+.square {
+  width: 22.5vw;
+  height: 22.5vw;
+  position: absolute;
+  border: 15px solid white;
+  bottom: 22vw;
+  left: 12vw;
+  transition: all cubic-bezier(0.2, 0.2, 0.1, 0.6) 0.4s;
+}
+
+.desc-cont {
+  float: right;
+  background-color: white;
+  width: 1.5vw;
+  height: 1.5vw;
+  font-weight: 100;
+  color: #585D66;
+  padding: 1.15vw;
+  font-size: 1.1vw;
+  line-height: 1.5vw;
+  -webkit-transition: all cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s;
+  transition: all cubic-bezier(0.6, 0.2, 0.1, 1) 0.2s; 
+  transform-origin: top right;
+}
+
+.desc-cont h3 {
+  position: absolute;
+  right: 1vw;
+  top: 0.5vw;
+  font-size: 2vw;
+  font-weight: 100;
+  opacity: 0.6;
+/*  transition-delay: 0.15s;*/
+}
+
+.desc-cont p {
+  opacity: 0;
+/*  transform: scale(0.9);*/
+  transform-origin: top right;
+  width: 8.5vw;
+  -webkit-transition: all cubic-bezier(0.6, 0.2, 0.1, 1) 0.1s;
+  transition: all cubic-bezier(0.6, 0.2, 0.1, 1) 0.1s; 
+}
+
+.pen-img:hover .desc-cont {
+  opacity: 1;
+  width: 8.5vw;
+  height: 4.5vw;
+  padding-top: 0.2vw;
+}
+
+.pen-img:hover .desc-cont p {
+  opacity: 0.6;
+/*  transform: scale(1);*/
+  transition-delay: 0.15s;
+}
+
+.pen-img:hover .desc-cont h3 {
+  opacity: 0;
+  -webkit-transition: all cubic-bezier(0.6, 0.2, 0.1, 1) 0.1s;
+  transition: all cubic-bezier(0.6, 0.2, 0.1, 1) 0.1s; 
+}
+
+#myChart, #myChartTwo, #myChartThree {
+  width: 41vw !important;
+  height: auto !important;
+  padding-top: 15vw;
+  transition: all cubic-bezier(0.4, 0.2, 0.1, 0.8) 0.4s;
+  position: absolute;
+  z-index: -1;
+  right: -5vw;
+}
+
+.chart-container {
+  overflow: visible;
+  width: 50%;
+  position: absolute;
+  right: 9vw;
+}
+
+.chart-filter {
+  position: relative;
+  top: 10vw;
+  height: 2vw;
+  padding-bottom: 2vw;
+  border-bottom: 2px solid #eaeaea;
+  color: #585D66;
+}
+
+.chart-filter h1 {
+  font-size: 1.3vw;
+  font-weight: 100;
+  font-family: "graphik-web";
+  float: left;
+ color: #585D66;
+}
+
+.chart-filter p {
+  font-size: 1.3vw;
+  float: right;
+  border-bottom: 2px solid transparent;
+  margin-left: 2vw;
+  padding-bottom: 2.2vw;
+  opacity: 0.5;
+  cursor: pointer;
+  transition: all cubic-bezier(0.2, 0.2, 0.1, 0.6) 0.4s;
+  color: #585D66;
+}
+
+.chart-filter p:hover
+{
+  border-bottom: 2px solid #131313;
+/*  opacity: 0.5;*/
+  color: #585D66;
+}
+
+.key-container {
+  position: relative;
+  width: 15vw;
+  position: absolute;
+  top: 20vw;
+  left: 0;
+}
+
+.rec {
+  width: 1vw;
+  height: 1vw;
+  margin-top: 0.4vw;
+  float: left;
+  margin-right: 1.5vw;
+  background-color: red;
+}
+
+.yellow {
+  background: #FFF5DE;
+  border: 1px solid #FFCE56;
+}
+
+.red {
+  background: #FFE0E6;
+  border: 1px solid #FF6385;
+}
+
+.blue {
+  background: #D7ECFB;
+  border: 1px solid #37A2EB;
+}
+
+.key {
+  width: 100%;
+  padding-bottom: 2vw;
+  border-bottom: 2px solid #eaeaea;
+  margin-bottom: 2vw;
+}
+
+.key:last-of-type {
+  border-bottom: none;
+}
+
+.key h1 {
+  font-size: 1.3vw;
+  font-weight: 400;
+/*  opacity: 0.5;*/
+  color: #585D66;
+}
+
+.filter-selected {
+  border-bottom: 2px solid #131313 !important;
+  opacity: 1 !important;
+}
+
+.hide {
+  transform: scale(0.9);
+  opacity: 0;;
+}
+
+.show {
+  transform: scale(1);
+  opacity: 1;
+}
+
+.grid {
+  width: 88%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.chart-intro {
+  width: 20vw;
+  float: left;
+  margin: 12vw;
+  margin-left: 10vw;
+  margin-right: 11.5vw;
+  margin-top: 7vw;
+}
+
+.chart-intro h2 {
+  font-family: Bagnard;
+  opacity: 0.7;
+  font-size: 30px;
+}
+
+.chart-intro h2 {
+  font-family: Bagnard;
+  opacity: 0.7;
+  font-size: 2.4vw;
+  font-weight: 100;
+}
+
+.chart-intro h1 {
+   font-family: "graphik-web";
+  font-weight: 100;
+  font-size: 3.5vw;
+  line-height: 4.25vw;
+  padding-top: 2.75vw;
+  padding-bottom: 2.75vw;
+}
+
+.chart-intro p {
+  font-size: 1.3vw;
+  color: #585D66;
+  line-height: 2.2vw;
+}
+
+
+@media (max-width: 736px) {
+
+  .pen-img {
+  	width: 83.5vw;
+  	left: -5vw;
+  }
+
+  .square {
+  	display: none;
+  }
+
+  .desc-cont {
+  	display: none !important;
+  }
+
+  .text-intro {
+  	width: 77vw;
+  	float: none;
+  	margin: 0 auto;
+  	text-align: center;
+  	padding-top: 10vw;
+  }
+
+  .text-intro h2 {
+  	font-size: 6vw;
+  }
+
+  .text-intro h1 {	
+    font-size: 8.5vw;
+  	line-height: 9.5vw;
+  }
+
+  .text-intro p {
+  	font-size: 4vw;
+  	padding-top: 2vw;
+  }
+  
+  .chart-intro {
+  	float: none;
+  	width: 90%;
+    margin: 0 auto;
+    padding-top: 9vw;
+  }
+
+  .chart-intro h1 {
+  	font-size: 6.5vw;
+  	line-height: 8.25vw;
+  	padding-top: 2.75vw;
+  	width: 60%;
+  }
+
+  .chart-intro p {
+  	font-size: 4vw;
+  	line-height: 6.2vw;
+  	width: 90%;
+  }
+
+  .chart-container {
+  	width: 85%;
+  	right: 0;
+  	left: 7vw;
+  }
+
+  #myChart, #myChartTwo, #myChartThree {
+  	width: 74vw !important;
+  	right: -12vw;
+  	padding-top: 18vw;
+  }
+
+  .chart-filter {
+  	height: 8vw;
+  }
+
+  .chart-filter h1 {
+  	font-size: 4vw;
+  }
+
+  .key-container {
+  	width: 22vw;
+  	top: 29vw;
+  }
+
+  .chart-filter p {
+  	font-size: 3vw;
+  	margin-left: 5vw;
+  	padding-bottom: 5.8vw;
+  }
+
+  .key h1 {
+  	font-size: 3vw;
+  }
+
+  .rec {
+  	margin-top: 1.5vw;
+  	margin-right: 2.5vw;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
