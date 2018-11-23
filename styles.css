@@ -19,10 +19,29 @@ html, body, h1, h2, h3, p {
 }
 
 .intro-container {
-  background-color: #CCDBEB;
-  width: 100%;
   height: 100%;
+}
+
+.intro-container, .feat-container {
+  background-color: #CCDBEB;
+}
+
+.feat-container {
+  padding-bottom: 5vw;
+}
+
+.retail-container {
+  overflow: hidden;
+}
+
+.intro-container, .charts-container, .feat-container {
   position: relative;
+  width: 100%;
+  overflow: hidden;
+}
+
+.charts-container {
+  height: 50vw;
 }
 
 .grid {
@@ -288,8 +307,8 @@ html, body, h1, h2, h3, p {
   font-weight: 100;
 }
 
-.chart-intro h1 {
-   font-family: "graphik-web";
+.chart-intro h1, .feat-text h1, .retail-container h1 {
+  font-family: "graphik-web";
   font-weight: 100;
   font-size: 3.5vw;
   line-height: 4.25vw;
@@ -297,12 +316,62 @@ html, body, h1, h2, h3, p {
   padding-bottom: 2.75vw;
 }
 
-.chart-intro p {
+.chart-intro p, .feat-text p, .retail-container p {
   font-size: 1.3vw;
   color: #585D66;
   line-height: 2.2vw;
 }
 
+.feat-text {
+  width: 28vw;
+  float: left;
+  margin: 12vw 0 0 10vw;
+}
+
+.right {
+  float: right;
+  margin: 10vw 10vw 0 0vw;
+}
+
+.feat-right {
+  width: 62vw;
+  float: right;
+}
+
+.feat-left {
+  width: 62vw;
+  float: left;
+}
+
+.feat-row {
+  display: block;
+  clear: both;
+}
+
+.retail-container {
+  text-align: center;
+  padding: 10vw 0 5vw 0;
+}
+
+.retail-container img {
+  float: left;
+  width: 52%;
+  text-align: left;
+}
+
+.retail-list {
+  width: 45%;
+  float: right;
+  text-align: left;
+  margin-top: 6vw;
+}
+
+.retail-list h1 {
+  width: 85%;
+  border-top: 2px solid #eaeaea;
+  font-size: 1.5vw;
+  padding: 1.25vw 0;
+}
 
 @media (max-width: 736px) {
 
@@ -331,14 +400,19 @@ html, body, h1, h2, h3, p {
   	font-size: 6vw;
   }
 
-  .text-intro h1 {	
+  .text-intro h1, .feat-container h1 {	
     font-size: 8.5vw;
   	line-height: 9.5vw;
   }
 
-  .text-intro p {
+  .text-intro p, .feat-container p {
   	font-size: 4vw;
+    line-height: 5.4vw;
   	padding-top: 2vw;
+  }
+  
+  .charts-container {
+    height: 130vw;
   }
   
   .chart-intro {
@@ -346,19 +420,23 @@ html, body, h1, h2, h3, p {
   	width: 90%;
     margin: 0 auto;
     padding-top: 9vw;
+    text-align: center;
   }
 
   .chart-intro h1 {
-  	font-size: 6.5vw;
-  	line-height: 8.25vw;
+    font-size: 8.5vw;
+  	line-height: 9.5vw;
   	padding-top: 2.75vw;
-  	width: 60%;
+    padding-bottom: 5vw;
+  	width: 80%;
+    margin: 0 auto
   }
 
   .chart-intro p {
   	font-size: 4vw;
   	line-height: 6.2vw;
-  	width: 90%;
+    width: 75%;
+    margin: 0 auto;
   }
 
   .chart-container {
@@ -400,6 +478,25 @@ html, body, h1, h2, h3, p {
   	margin-top: 1.5vw;
   	margin-right: 2.5vw;
   }
+  
+  .feat-row {
+    padding: 18vw 0 18vw 0;
+  }
+  
+  .feat-right, .feat-left {
+    width: 100%;
+    display: block;
+  }
+  
+  .feat-text {
+    width: 75%;
+    margin: 12vw 0;
+    margin: 0 auto;
+    display: block;
+    text-align: center;
+    float: none;
+  }
+  
 }
 
 
